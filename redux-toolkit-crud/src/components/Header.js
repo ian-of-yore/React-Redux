@@ -5,8 +5,8 @@ const Header = () => {
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/addTask'>Add Task</Link></li>
         <li><Link to='/myTasks'>My Tasks</Link></li>
+        <li><Link to='/addTask'>Add Task</Link></li>
     </>
 
     return (
