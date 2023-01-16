@@ -22,11 +22,15 @@ export const tasksSlice = createSlice({
             const title = action.payload;
             state.tasks = state.tasks.filter(task => task.title !== title)
         },
-        updateTask: (state, action) =>{
-            
+        updateTask: (state, action) => {
+            const { prevTitle, updatedTitile } = action.payload;
+            const isTaskExist = state.tasks.filter(task => task.title === prevTitle);
+            if (isTaskExist) {
+                isTaskExist[0].title = updatedTitile;
+            }
         }
     }
 })
 
-export const { showTasks, addTask, deleteTask } = tasksSlice.actions;
+export const { showTasks, addTask, deleteTask, updateTask } = tasksSlice.actions;
 export default tasksSlice.reducer;

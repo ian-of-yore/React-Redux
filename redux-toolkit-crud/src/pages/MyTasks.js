@@ -1,6 +1,7 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Modal from '../components/Modal';
 import { deleteTask } from '../features/TasksSlice';
 
@@ -33,7 +34,7 @@ const MyTasks = () => {
                                     <th>{index + 1}</th>
                                     <td>{task.title}</td>
                                     <td className='flex justify-start'>
-                                        <button className='btn btn-xs'>Update</button>
+                                        <Link to='/updateTask' state={{ task: task.title }}><button className='btn btn-xs'>Update</button></Link>
                                         <button onClick={() => handleTaskDelete(task.title)} className='btn btn-xs mx-3'>Completed</button>
                                     </td>
                                 </tr>)
